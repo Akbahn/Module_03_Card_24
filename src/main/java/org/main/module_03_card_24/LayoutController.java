@@ -44,6 +44,7 @@ public class LayoutController {
     private List<String> cardNames;
     private final List<String> selectedCards = new ArrayList<>();
     private static final String API_KEY = System.getenv("OPENAI_API_KEY");
+
     public void initialize() {
         cardNames = new ArrayList<>();
         String[] suits = {"hearts", "diamonds", "clubs", "spades"};
