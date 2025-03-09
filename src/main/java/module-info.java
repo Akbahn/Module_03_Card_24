@@ -4,6 +4,8 @@ module org.main.module_03_card_24 {
     requires java.scripting;
     requires commons.jexl3;
     requires exp4j;
+    //requires api;
+    requires org.json;
 
 
     opens org.main.module_03_card_24 to javafx.fxml;

@@ -14,6 +14,7 @@ import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+
 public class LayoutController {
 
     @FXML
@@ -42,6 +43,7 @@ public class LayoutController {
 
     private List<String> cardNames;
     private final List<String> selectedCards = new ArrayList<>();
+    private static final String API_KEY = System.getenv("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");
 
     public void initialize() {
         cardNames = new ArrayList<>();
@@ -108,9 +110,16 @@ public class LayoutController {
 
     @FXML
     void showHint(ActionEvent event) {
-        String hint = "Hint: Use the four card numbers with operators (+, -, *, /) and group with parentheses. For example: (a+b) * (c-d)";
-        showAlert("Hint", hint);
+        List<Integer> cardValues = getCardValues();
+        String prompt = "Given these numbers: " + cardValues +
+                ", provide a hint on how to form 24 using +, -, *, /, and parentheses.";
+
+        String hint = OpenAIHelper.chatGPT(prompt);
+        showAlert("AI Hint", hint);
+
     }
+
+
 
     @FXML
     void verifyExpression(ActionEvent event) {
