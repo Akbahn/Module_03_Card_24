@@ -1,0 +1,15 @@
+private void setCardImage(ImageView imageView, String cardName) {
+    String imagePath = "/org/main/module_03_card_24/png/" + cardName;
+    try {
+        InputStream inputStream = getClass().getResourceAsStream(imagePath);
+        if (inputStream == null) {
+            System.err.println("Cannot find image: " + imagePath);
+            return;
+        }
+        Image image = new Image(inputStream);
+        imageView.setImage(image);
+    } catch (Exception e) {
+        System.err.println("Error loading image: " + imagePath);
+        e.printStackTrace();
+    }
+}
