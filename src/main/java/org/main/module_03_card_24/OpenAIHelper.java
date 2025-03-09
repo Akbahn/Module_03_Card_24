@@ -8,9 +8,10 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 public class OpenAIHelper {
-    private static final String API_KEY = "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";
+    private static final String API_KEY = System.getenv("OPENAI_API_KEY");
 
     public static String chatGPT(String message) {
+
         String url = "https://api.openai.com/v1/chat/completions";
         String model = "gpt-3.5-turbo";
 

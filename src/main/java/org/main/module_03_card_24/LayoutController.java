@@ -110,6 +110,11 @@ public class LayoutController {
 
     @FXML
     void showHint(ActionEvent event) {
+        if (API_KEY == null || API_KEY.isEmpty()) {
+            showAlert("Error", "OpenAI API key not configured.");
+            return;
+        }
+
         List<Integer> cardValues = getCardValues();
         String prompt = "Given these numbers: " + cardValues +
                 ", provide a hint on how to form 24 using +, -, *, /, and parentheses.";
